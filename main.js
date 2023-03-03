@@ -17,6 +17,12 @@ async function main() {
         accumulator[part.fieldname] = part.value;
       } else {
         file = part;
+        // This will fix the hang
+        // but is it correct?
+        // I expect that the iterator should not care
+        // that we consume the file itself
+        // or does it?
+        // await file.toBuffer();
       }
     }
 
